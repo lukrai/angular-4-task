@@ -1,0 +1,16 @@
+<div class="card-padding" *ngFor="let data of posts">
+  <md-card class="card" (click)="onSelect(data)">
+    <md-card-header>
+      <md-card-title ><h4>{{ data.title }}</h4></md-card-title>
+      <md-card-subtitle class="md-subclass">Posted by: {{data.user}}  Comments: {{data.comments_count}}</md-card-subtitle>
+    </md-card-header>
+    <md-card-content class="card-padding">
+      <p>{{data.body}}</p>
+    </md-card-content>
+
+    <md-card-actions>
+      <button md-button>SEE MORE</button>
+    </md-card-actions>
+
+  </md-card>
+</div> 

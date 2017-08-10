@@ -1,0 +1,39 @@
+<div>
+  <md-card class="card">
+    <md-card-header>
+      <md-card-title>
+        <h4>{{ post.title }}</h4>
+      </md-card-title>
+      <md-card-subtitle class="md-subclass">Posted by: {{post.userId}} </md-card-subtitle>
+    </md-card-header>
+    <md-card-content class="card-padding">
+      <p>{{post.body}}</p>
+    </md-card-content>
+  </md-card>
+</div>
+
+<div align="center">
+  <h4>Comments</h4>
+</div>
+<div class="list-padding">
+  <md-list>
+    <md-list-item class="list list-1" *ngFor="let comment of comments">
+      <div class="md-list-item-text" layout="column">
+        <h3 md-line> {{comment.email}} </h3>
+        <p md-line> {{comment.body}} </p>
+      </div>
+    </md-list-item>
+  </md-list>
+</div>
+
+<div class="form-style">
+  <form (ngSubmit)="onSubmit()" #submitForm="ngForm">
+    <div class="card-padding">
+      <input placeholder="Email" type="email" class="form-control" name="email" ngModel email required [(ngModel)]="email">
+    </div>
+    <div class="card-padding">
+      <input placeholder="Comment" type="text" class="form-control" required [(ngModel)]="comment" name="comment">
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!submitForm.form.valid">Submit</button>
+  </form>
+</div>
